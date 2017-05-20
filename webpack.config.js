@@ -1,13 +1,6 @@
 const path = require('path');
-
 const root = __dirname;
 
-/* eslint-disable */
-// import {babelConfig, distPath, publicPath, assets} from '../shared';
-// import entries, {root} from '../entries';
-// import {isArray, forEach} from 'lodash';
-
-// const root = '.';
 module.exports = {
     entry: './app/index',
     output: {
@@ -19,14 +12,6 @@ module.exports = {
         extensions: [ '.js', '.jsx'],
         modules: ['node_modules']
     },
-    // resolveLoader: {
-    //     modules: ['node_modules', 'loaders'],
-    //     extensions: [".loader.js", ".js"],
-    // },
-    // resolveLoader: {
-    //     modules: ['node_modules', 'loaders'],
-    //     extensions: [".loader.js", ".js"],
-    // },
     devtool: 'inline-source-map',
     module: {
         rules: [

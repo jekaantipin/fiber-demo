@@ -30,7 +30,7 @@ export class Block extends React.Component {
 
     render() {
         const {k} = this.props;
-        const bg = this.state.hover ? '#ED7D31' : '#5B9BD5';
+        const bg = this.state.hover ? '#ff9100' : '#fff';
         return (
             <Pixel style={pixelStyle} onMouseEnter={this.enter} onMouseLeave={this.leave} bg={bg} k={k}>
             </Pixel>
@@ -45,7 +45,7 @@ export function Pixel({k, onMouseEnter, onMouseLeave, bg}) {
         display: 'inline-block',
         margin: '1px 1px',
         cursor: 'default',
-        color: bg
+        color: bg,
     };
     return (
         <div
@@ -69,18 +69,10 @@ Pixel.shouldComponentUpdate = ({k: oldK, bg: oldBg}, {k, bg}) => {
     return oldK !== k || oldBg !== bg;
 };
 
-// class Pixel extends React.PureComponent {
-//     render() {
-//
-//         const {k} = this.props;
-//
-//     }
-// }
-
 function PixelText({k}) {
     var e = performance.now() + 0.4;
     while (performance.now() < e) {
-        // Artificially long execution time.
+        // long execution time.
     }
     return k - 1;
 }

@@ -6,8 +6,8 @@ class App extends React.PureComponent {
     state = {
         lowPriority: 1,
         timeSliced: false,
-        value: '',
-        value2: '',
+        value: 'react',
+        value2: 'fiber',
     };
 
     componentDidMount() {
@@ -48,7 +48,8 @@ class App extends React.PureComponent {
         const map = letterMap(lowPriority);
         const children = value.split('').map((letter) => {
             return (
-                <div style={{textAlign: 'left',display: 'inline-block', transform: `scale(${time / 8 + 0.4})`}} key={letter}>
+                <div style={{textAlign: 'left', display: 'inline-block', transform: `scale(${time / 8 + 0.4})`}}
+                     key={letter}>
                     {map[letter]}
                 </div>
 
@@ -56,7 +57,8 @@ class App extends React.PureComponent {
         });
         const children2 = value2.split('').map((letter) => {
             return (
-                <div style={{textAlign: 'left',display: 'inline-block', transform: `scale(${time / 10 + 0.4})`}}  key={letter}>
+                <div style={{textAlign: 'left', display: 'inline-block', transform: `scale(${time / 10 + 0.4})`}}
+                     key={letter}>
                     {map[letter]}
                 </div>
 
@@ -64,11 +66,27 @@ class App extends React.PureComponent {
         });
         return (
             <div>
-                <div>
-                    <Input onChange={this.onChange} value={value} />
-                    <Input onChange={this.onChange2} value={value2} />
-                    <input disabled value={lowPriority-1} />
-                    <CheckBox onChange={this.onToggle} value={timeSliced} />
+                <div style={{position: 'absolute'}}>
+                    <img src="epam.png" style={{height: '32px'}} />
+                    {/*<Input onChange={this.onChange} value={value} />*/}
+                    {/*<Input onChange={this.onChange2} value={value2} />*/}
+                    <div style={{
+                        position: 'fixed',
+                        left: '10px',
+                        top: 'calc(50% - 30px)',
+                    }}>
+                        <input disabled value={lowPriority - 1} style={{
+                            width: '40px',
+                            height: '40px',
+                            textAlign: 'center',
+                            fontSize: '32px',
+                            marginBottom: '10px'
+                        }} />
+                        <br />
+                        <CheckBox onChange={this.onToggle} value={timeSliced} />
+                        <span style={{color: '#fff', fontSize: '16px'}}>Fiber</span>
+                    </div>
+
                 </div>
                 <div style={{textAlign: 'center'}}>
                     {children}
@@ -97,7 +115,7 @@ CheckBox.shouldComponentUpdate = ({value: oldValue}, {value}) => {
 
 let start = new Date().getTime();
 let limit = 0;
-let double= true;
+let double = true;
 let prev;
 function update() {
     const pivot = 3;
@@ -109,8 +127,8 @@ function update() {
         time = pivot - current;
     }
     limit = time;
-    double =!double
-    if(double){
+    double = !double
+    if (double) {
         time = prev;
     }
     prev = time;

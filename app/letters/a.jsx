@@ -4,7 +4,7 @@ import {getRowStyle} from './utils';
 export default class A extends React.PureComponent {
     render() {
         const {k} = this.props;
-        const classRow = getRowStyle(k);
+        const classRow = getRowStyle();
         return (
             <div>
                 <div style={classRow}>
